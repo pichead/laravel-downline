@@ -58,6 +58,7 @@
                             <tr>
                                 <th class="text-lg-center" scope="col">No.</th>
                                 <th class="text-lg-center" scope="col">รายการสินค้า </th>
+                                <th class="text-lg-center" scope="col">จำนวนในคลัง</th>
                                 <th class="text-lg-center px-lg-0" scope="col">ราคา/ชิ้น</th>
                                 <th class="text-lg-center px-lg-0" scope="col">จำนวน</th>
                                 <th class="text-lg-center px-lg-0" scope="col">ราคารวม</th>
@@ -98,6 +99,9 @@
                                             <input class="d-none" name="stock_id[]" value="{{$stockname->id}}" >
                                             <div class="pl-2" ><span class="stock-extra-unit">{{$count}}. </span>{{$stockname->name}}</div>
                                         </td>
+                                        <td class="px-0 text-xl-center" >
+                                            <div class="pl-2" >{{number_format($stockname->amount,0)}}</div>
+                                        </td>
                                         <td class="text-xl-right px-0" >
                                             <input class="d-none" id="input-price-unit-{{$count}}" name="priceperunit[]" value="{{$priceperunit}}" />
                                             <span id="priceunit-{{$count}}"><span class="pl-2 stock-extra-unit">ราคา/ชิ้น : </span>{{number_format($priceperunit,2)}}</span>
@@ -135,7 +139,7 @@
                             
                           @endforeach
                           <tr>
-                            <td colspan="4"></td>
+                            <td colspan="5"></td>
                             <td colspan="2" class="text-xl-right" id="cash-out" ></td>
                             </tr>
                         </tbody>
