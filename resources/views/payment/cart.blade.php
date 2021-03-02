@@ -363,10 +363,34 @@ $('.price-identifier').on('keyup change', (e) =>{
 
         cashOut.html('ราคารวมทั้งหมด ' + numeral(sum).format('0,0.00') +' บาท');
 
-        console.log($('#'));
+
+        // $('.price').each(function(i, obj) {
+        //     var price_total = obj.innerHTML;
+        //     if(price_total == 0){
+        //         $('#faild-message').text('จำนวนสินค้าที่คุณต้องการเกินเรทราคาที่กำหนด หรือ จำนวนสินค้าไม่เพียงพอ');
+        //         $('#faild-msg').removeClass('d-none');         
+        //         $('#faild-msg').addClass('show');  
+        //         }
+        //     else{
+        //         console.log('pass');
+        //     }
+        // });
+
+
+        $('.price-identifier').each(function(){
+            var input = $(this).val();
+            var max_amount = $(this).attr('max');
+            if(input > max_amount){
+                $('#faild-message').text('จำนวนสินค้าที่คุณต้องการเกินเรทราคาที่กำหนด หรือ จำนวนสินค้าไม่เพียงพอ');
+                $('#faild-msg').removeClass('d-none');         
+                $('#faild-msg').addClass('show');   
+            }
+        });
+        // var y  = $('.price-identifier');
+        // console.log(y);
         if(sum == 0){
-            console.log('เกินจำนวน');
-            $('#faild-message').text('จำนวนสินค้าที่คุณต้องการเกินเรทราคา');
+            // console.log('เกินจำนวน');
+            $('#faild-message').text('จำนวนสินค้าที่คุณต้องการเกินเรทราคาที่กำหนด หรือ จำนวนสินค้าไม่เพียงพอ');
             $('#faild-msg').removeClass('d-none');         
             $('#faild-msg').addClass('show');       
         }
