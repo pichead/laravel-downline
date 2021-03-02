@@ -363,7 +363,7 @@ $('.price-identifier').on('keyup change', (e) =>{
 
         cashOut.html('ราคารวมทั้งหมด ' + numeral(sum).format('0,0.00') +' บาท');
 
-        console.log(sum);
+        console.log($('#'));
         if(sum == 0){
             console.log('เกินจำนวน');
             $('#faild-message').text('จำนวนสินค้าที่คุณต้องการเกินเรทราคา');
